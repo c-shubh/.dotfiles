@@ -1,0 +1,15 @@
+[init]
+	defaultBranch = main
+[user]
+	email = shubh.cs@proton.me
+	name = Shubh Chudasama
+[alias]
+	hist = log --pretty=format:'%C(yellow)%h %Creset%ad | %s%d [%an]' --graph --date=format:'%a %b %d %I:%M %p %Y'
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+[core]
+	editor = nano
+[color]
+	ui = auto
