@@ -28,7 +28,7 @@ alias cp="cp -i"
 alias mv='mv -i'
 # dotfiles management with git bare repo 
 # https://www.atlassian.com/git/tutorials/dotfiles
-alias config='/usr/bin/git --git-dir=/home/shubh/.dotfiles/ --work-tree=/home/shubh'
+alias conf='/usr/bin/git --git-dir=/home/shubh/.dotfiles/ --work-tree=/home/shubh'
 
 PS1='[\u@\h \W]\$ '
 
