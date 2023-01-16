@@ -34,6 +34,7 @@ PS1='[\u@\h \W]\$ '
 
 # custom functions
 md() { pandoc "$1" | lynx -stdin; }
+tmp() { cd /home/shubh/tmp/; }
 
 # rbenv
 eval "$(rbenv init -)"
