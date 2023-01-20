@@ -11,9 +11,6 @@
 # autojump
 [[ -s /etc/profile.d/autojump.sh ]] && source /etc/profile.d/autojump.sh
 
-# "bat" as manpager
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-
 # ignore upper and lowercase when TAB completion
 bind -s 'set completion-ignore-case on'
 
@@ -59,6 +56,11 @@ $PATH\
 :$HOME/tools/flutter/bin\
 :$HOME/src/google/depot_tools\
 "
+
+# exports
+export ANDROID_HOME="$HOME/Android/Sdk"
+# "bat" as manpager
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 # ble.sh -- keep this line here at the end
 [[ ${BLE_VERSION-} ]] && ble-attach
