@@ -26,6 +26,7 @@ alias tt='gio trash'
 # confirm before overwriting something
 alias cp="cp -i"
 alias mv='mv -i'
+alias rm='rm -i'
 # dotfiles management with git bare repo 
 # https://www.atlassian.com/git/tutorials/dotfiles
 alias conf='/usr/bin/git --git-dir=/home/shubh/.dotfiles/ --work-tree=/home/shubh'
