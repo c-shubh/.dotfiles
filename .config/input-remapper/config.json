@@ -1,7 +1,7 @@
 {
     "version": "1.5.0",
     "autoload": {
-        "SEM HCT Keyboard": "map caps lock to shift l"
+        "SEM HCT Keyboard": "ls -> cl, cl -> rwin"
     },
     "macros": {
         "keystroke_sleep_ms": 10
