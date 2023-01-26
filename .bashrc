@@ -17,9 +17,12 @@ bind -s 'set completion-ignore-case on'
 # alias
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 alias cls='clear'
+alias copy='xclip -selection clip'
 alias e.='xdg-open .'
 alias l=ls
 alias ls='ls -p --color=auto'
+alias py='python'
+alias qrtxt='qrencode -t ansiutf8'
 alias tt='gio trash'
 # confirm before overwriting something
 alias cp="cp -i"
