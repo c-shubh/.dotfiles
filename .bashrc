@@ -21,6 +21,7 @@ alias copy='xclip -selection clip'
 alias e.='xdg-open .'
 alias l=ls
 alias ls='ls -p --color=auto'
+alias open='xdg-open'
 alias py='python'
 alias qrtxt='qrencode -t ansiutf8'
 alias tt='gio trash'
