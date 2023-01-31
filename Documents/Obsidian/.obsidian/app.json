@@ -1,0 +1,40 @@
+{
+  "showLineNumber": true,
+  "spellcheck": true,
+  "useTab": false,
+  "userIgnoreFilters": [
+    "/node_modules/"
+  ],
+  "vimMode": false,
+  "strictLineBreaks": true,
+  "showInlineTitle": false,
+  "trashOption": "local",
+  "mobileToolbarCommands": [
+    "insert-template",
+    "editor:toggle-bullet-list",
+    "editor:toggle-checklist-status",
+    "editor:set-heading",
+    "editor:toggle-bold",
+    "editor:undo",
+    "editor:redo",
+    "editor:insert-link",
+    "editor:insert-wikilink",
+    "editor:insert-embed",
+    "editor:insert-tag",
+    "editor:attach-file",
+    "editor:toggle-italics",
+    "editor:toggle-strikethrough",
+    "editor:toggle-code",
+    "editor:toggle-highlight",
+    "editor:toggle-blockquote",
+    "editor:toggle-numbered-list",
+    "editor:indent-list",
+    "editor:unindent-list",
+    "editor:toggle-keyboard",
+    "editor:configure-toolbar"
+  ],
+  "useMarkdownLinks": true,
+  "showUnsupportedFiles": true,
+  "mobilePullAction": "command-palette:open",
+  "promptDelete": true
+}
