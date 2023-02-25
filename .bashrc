@@ -67,5 +67,8 @@ export ANDROID_HOME="$HOME/Android/Sdk"
 # "bat" as manpager
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
+# Load Angular CLI autocompletion.
+source <(ng completion script)
+
 # ble.sh -- keep this line here at the end
 [[ ${BLE_VERSION-} ]] && ble-attach
