@@ -66,6 +66,8 @@ $PATH\
 export ANDROID_HOME="$HOME/Android/Sdk"
 # "bat" as manpager
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+# for flutter
+export CHROME_EXECUTABLE=/opt/brave-bin/brave
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)

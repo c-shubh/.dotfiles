@@ -2,7 +2,7 @@
 	defaultBranch = main
 [user]
 	email = shubh.cs@proton.me
-	name = Shubh Chudasama
+	name = Shubh A Chudasama
 [alias]
 	hist = log --pretty=format:'%C(yellow)%h %Creset%ad | %s%d [%an]' --graph --date=format:'%a %b %d %I:%M %p %Y'
 	co = checkout
