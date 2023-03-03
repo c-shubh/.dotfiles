@@ -20,6 +20,8 @@ alias cls='clear'
 alias copy='xclip -selection clip'
 alias e.='xdg-open .'
 alias ga='git add'
+alias gci='git commit'
+alias ghist='git hist'
 alias gst='git status'
 alias l=ls
 alias ls='ls -p --color=auto'
