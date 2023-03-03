@@ -10,6 +10,6 @@
 	ci = commit
 	st = status
 [core]
-	editor = nano
+	editor = nano --linenumbers --constantshow --guidestripe=50 --breaklonglines --fill=72
 [color]
 	ui = auto

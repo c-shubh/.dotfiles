@@ -19,6 +19,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 alias cls='clear'
 alias copy='xclip -selection clip'
 alias e.='xdg-open .'
+alias ga='git add'
 alias l=ls
 alias ls='ls -p --color=auto'
 alias open='xdg-open'

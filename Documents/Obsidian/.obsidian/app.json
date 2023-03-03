@@ -36,5 +36,6 @@
   "useMarkdownLinks": true,
   "showUnsupportedFiles": true,
   "mobilePullAction": "command-palette:open",
-  "promptDelete": true
+  "promptDelete": true,
+  "attachmentFolderPath": "./attachments"
 }
