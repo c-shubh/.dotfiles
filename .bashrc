@@ -40,7 +40,6 @@ alias conf='/usr/bin/git --git-dir=/home/shubh/.dotfiles/ --work-tree=/home/shub
 PS1='[\u@\h \W]\$ '
 
 # custom functions
-md() { pandoc "$1" | lynx -stdin; }
 tmp() { cd /home/shubh/tmp/; }
 
 # rbenv
