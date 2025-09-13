@@ -1,0 +1,15 @@
+[init]
+	defaultBranch = master
+[user]
+	name = Shubh A Chudasama
+	email = shubh.cs@proton.me
+[alias]
+	br = branch
+	co = checkout
+	ci = commit
+	st = status
+	# I found the below hist alias in some tutorial while learning git and had been using ever since.
+	# hist = log --pretty=format:'%C(yellow)%h %Creset%ad | %s%d [%an]' --graph --date=format:'%a %b %d %I:%M %p %Y'
+	# below is a version of https://stackoverflow.com/questions/1441010/the-shortest-possible-output-from-git-log-containing-author-and-date/63145145#63145145
+	# modified to match the structure of the `hist` alias I'm used to.
+	hist = log --pretty='%C(yellow)%h %C(cyan)%ad %Creset%s%C(auto)%d %Cblue[%aN]' --graph --date=format:'%a %b %d %I:%M %p %Y'

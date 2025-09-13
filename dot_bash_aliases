@@ -1,0 +1,2 @@
+alias rrm='gtrash put -v'
+alias cm='chezmoi -v'

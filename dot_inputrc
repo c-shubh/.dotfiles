@@ -1,0 +1,5 @@
+$include /etc/inputrc
+
+# make tab auto-completion case-insensitive
+# ref: https://askubuntu.com/questions/87061/can-i-make-tab-auto-completion-case-insensitive-in-bash/87066#87066
+set completion-ignore-case On
