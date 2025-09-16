@@ -118,5 +118,7 @@ fi
 
 # fzf shell integration
 # ref: https://junegunn.github.io/fzf/shell-integration/
-eval "$(fzf --bash)"
+if command -v fzf &> /dev/null; then
+  eval "$(fzf --bash)"
+fi
 
