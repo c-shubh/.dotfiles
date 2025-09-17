@@ -1,2 +1,72 @@
 {
+  // don't autoupdate extensions, because security
+  // > NX Console Extension that can be used in VSCode, Cursor, etc compromised some users due to its auto-update feature.
+  // ref: https://semgrep.dev/blog/2025/security-alert-nx-compromised-to-steal-wallets-and-credentials/
+  "extensions.autoUpdate": false,
+  "extensions.experimental.affinity": {
+    // to speed up the extension
+    // ref: https://github.com/vscode-neovim/vscode-neovim/issues/1051
+    "asvetliakov.vscode-neovim": 1
+  },
+  // fixes key remapping (caps lock and esc swap)
+  // ref: https://stackoverflow.com/questions/48369303/use-in-visual-studio-code-vim-extension-caps-instead-of-esc/50875402#50875402
+  // ref: https://github.com/microsoft/vscode/issues/23991#issuecomment-292336504
+  "keyboard.dispatch": "keyCode",
+  "editor.rulers": [{ "column": 80 }, { "column": 120 }],
+  "editor.tabSize": 2,
+  "telemetry.telemetryLevel": "off",
+  "workbench.sideBar.location": "right",
+  "terminal.integrated.confirmOnExit": "always",
+  "debug.confirmOnExit": "always",
+  // the vim way
+  "editor.lineNumbers": "relative",
+  "markdown.preview.fontSize": 20,
+  "svg.preview.mode": "svg",
+  // show commit message input validation diagnostics
+  "git.inputValidation": true,
+  "editor.mouseWheelZoom": true,
+  // show moved code blocks
+  "diffEditor.experimental.showMoves": true,
+  "chat.mcp.access": "none",
+  // ----------------------- language specific settings -----------------------
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
+  },
+  "[sql]": {
+    "editor.defaultFormatter": "ReneSaarsoo.sql-formatter-vsc"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[dockercompose]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[rust]": {
+    "editor.tabSize": 4
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "github.copilot.nextEditSuggestions.enabled": true
 }

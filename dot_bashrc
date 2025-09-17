@@ -122,3 +122,12 @@ if command -v fzf &> /dev/null; then
   eval "$(fzf --bash)"
 fi
 
+# ble.sh integration
+# ref: https://github.com/akinomyoga/ble.sh/blob/master/README.md#quick-instructions
+[[ -f ~/.local/share/blesh/ble.sh ]] && source ~/.local/share/blesh/ble.sh
+
+# Rust / Cargo environment
+if [ -f "$HOME/.cargo/env" ]; then
+  . "$HOME/.cargo/env"
+fi
+
