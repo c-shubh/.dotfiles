@@ -28,7 +28,13 @@
   // show moved code blocks
   "diffEditor.experimental.showMoves": true,
   "chat.mcp.access": "none",
+  "github.copilot.nextEditSuggestions.enabled": true,
+  // don't want copilot chat to be open by default
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
   // ----------------------- language specific settings -----------------------
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -68,5 +74,4 @@
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "github.copilot.nextEditSuggestions.enabled": true
 }
