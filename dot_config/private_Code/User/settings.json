@@ -31,6 +31,12 @@
   "github.copilot.nextEditSuggestions.enabled": true,
   // don't want copilot chat to be open by default
   "workbench.secondarySideBar.defaultVisibility": "hidden",
+  "editor.fontFamily": "DejaVuSansM Nerd Font Propo",
+  "diffEditor.hideUnchangedRegions.enabled": true,
+  "github.copilot.enable": {
+    "*": true
+  },
+  "diffEditor.ignoreTrimWhitespace": true,
   // ----------------------- language specific settings -----------------------
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -73,5 +79,5 @@
   },
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
+  }
 }

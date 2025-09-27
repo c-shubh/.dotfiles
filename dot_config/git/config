@@ -5,7 +5,7 @@
 	email = shubh.cs@proton.me
 [alias]
 	br = branch
-	co = checkout
+	sw = switch
 	ci = commit
 	st = status
 	# I found the below hist alias in some tutorial while learning git and had been using ever since.

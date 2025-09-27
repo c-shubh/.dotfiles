@@ -56,10 +56,36 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+# Git prompt (https://git-scm.com/book/cs/v2/Appendix-A:-Git-in-Other-Environments-Git-in-Bash)
+# Find the path using: dpkg -L git | grep prompt
+# ref: https://askubuntu.com/questions/1521308/where-is-git-prompt-sh-located-in-ubuntu-24-04/1521314#1521314
+if [ -f /usr/lib/git-core/git-sh-prompt ]; then
+  # show unstaged (*) and staged (+) changes next to the branch name.
+  export GIT_PS1_SHOWDIRTYSTATE=1
+  # show difference between HEAD and its upstream
+  # verbose: show number of commits ahead/behind (+/-) upstream
+  export GIT_PS1_SHOWUPSTREAM="verbose"
+  # show colored hint about the current dirty state
+  export GIT_PS1_SHOWCOLORHINTS=1
+  # If something is stashed, then a '$' will be shown next to the branch name.
+  export GIT_PS1_SHOWSTASHSTATE=1
+  # show "|CONFLICT" when there are unresolved conflicts
+  export GIT_PS1_SHOWCONFLICTSTATE="yes"
+  source /usr/lib/git-core/git-sh-prompt
+fi
+
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]'
+    if command -v __git_ps1 &> /dev/null; then
+      PS1+='$(__git_ps1 " (%s)")'
+    fi
+    PS1+='\$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w'
+    if command -v __git_ps1 &> /dev/null; then
+      PS1+='$(__git_ps1 " (%s)")'
+    fi
+    PS1+='\$ '
 fi
 unset color_prompt force_color_prompt
 
@@ -131,7 +157,19 @@ if [ -f "$HOME/.cargo/env" ]; then
   . "$HOME/.cargo/env"
 fi
 
-# node version manager setup
+# node version manager setup (https://github.com/nvm-sh/nvm)
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# atuin shell history (https://atuin.sh/)
+if [ -f "$HOME/.atuin/bin/env" ]; then
+  . "$HOME/.atuin/bin/env"
+fi
+
+[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+
+if command -v atuin &> /dev/null; then
+  eval "$(atuin init bash)"
+fi
+
