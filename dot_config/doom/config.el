@@ -8,6 +8,7 @@
 ;; clients, file templates and snippets. It is optional.
 ;; (setq user-full-name "John Doe"
 ;;       user-mail-address "john@doe.com")
+(setq user-full-name "Shubh A Chudasama")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -36,7 +37,7 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
+(setq display-line-numbers-type 'relative)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -74,3 +75,40 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+
+(setq org-directory "~/Documents/")
+(setq org-agenda-files '("~/Documents/life.org"))
+
+(defun my/open-life-org ()
+  (find-file "~/Documents/life.org")
+  (goto-char (point-min)))
+
+(add-hook 'window-setup-hook #'my/open-life-org)
+
+(after! org
+  (setq org-todo-keywords
+        '((sequence "TODO(t)" "NEXT(n)" "WAITING(w)" "SOME(s)" "|" "DONE(d)" "CANCELLED(c)")))
+
+  (setq org-capture-templates
+        '(("t" "GTD Inbox Task" entry
+           (file+headline "~/Documents/life.org" "Inbox")
+           "* TODO %?\n:PROPERTIES:\n:CREATED: %U\n:END:\n")))
+
+  (defun my/org-handle-timestamps ()
+    (let ((state org-state)
+          (now (format-time-string "[%Y-%m-%d %a %H:%M]")))
+      (cond
+       ((and (string= state "CANCELLED")
+             (not (org-entry-get nil "CANCELLED")))
+        (org-entry-put nil "CANCELLED" now))
+
+       ((and (string= state "DONE")
+             (not (org-entry-get nil "DONE")))
+        (org-entry-put nil "DONE" now))
+
+       ((and (string= state "TODO")
+             (not (org-entry-get nil "CREATED")))
+        (org-entry-put nil "CREATED" now)))))
+  (add-hook 'org-after-todo-state-change-hook #'my/org-handle-timestamps)
+)

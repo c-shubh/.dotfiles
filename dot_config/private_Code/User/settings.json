@@ -32,11 +32,36 @@
   // don't want copilot chat to be open by default
   "workbench.secondarySideBar.defaultVisibility": "hidden",
   "editor.fontFamily": "DejaVuSansM Nerd Font Propo",
-  "diffEditor.hideUnchangedRegions.enabled": true,
   "github.copilot.enable": {
     "*": true
   },
   "diffEditor.ignoreTrimWhitespace": true,
+  "diffEditor.renderSideBySide": true,
+  "editor.renderWhitespace": "boundary",
+  "editor.stickyScroll.enabled": false,
+  "cSpell.userWords": ["backpropagation"],
+  "vscode-neovim.neovimExecutablePaths.linux": "/home/cshubh/.local/bin/nvim",
+  "terminal.integrated.stickyScroll.enabled": false,
+  "files.associations": {
+    "*.h": "c"
+  },
+  "makefile.configureOnOpen": true,
+  "svelte.enable-ts-plugin": true,
+  "editor.quickSuggestions": {
+    "other": "on",
+    "comments": "off",
+    "strings": "on"
+  },
+  "tailwindCSS.classFunctions": ["clsx"],
+  "tailwindCSS.validate": true,
+  "tailwindCSS.lint.invalidScreen": "warning",
+  "tailwindCSS.lint.invalidVariant": "warning",
+  "tailwindCSS.lint.invalidTailwindDirective": "warning",
+  "tailwindCSS.lint.invalidApply": "warning",
+  "tailwindCSS.lint.invalidConfigPath": "warning",
+  "tailwindCSS.lint.cssConflict": "warning",
+  "tailwindCSS.lint.recommendedVariantOrder": "warning",
+  "tailwindCSS.lint.usedBlocklistedClass": "warning",
   // ----------------------- language specific settings -----------------------
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -79,5 +104,20 @@
   },
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[c]": {
+    "editor.defaultFormatter": "xaver.clang-format"
+  },
+  "[java]": {
+    "editor.defaultFormatter": "redhat.java"
+  },
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff"
+  },
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode"
+  },
+  "[mdx]": {
+    "editor.defaultFormatter": "unifiedjs.vscode-mdx"
   }
 }

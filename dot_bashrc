@@ -162,6 +162,32 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# docker
+export DOCKER_HOST=unix:///run/user/1000/docker.sock
+
+# pnpm
+export PNPM_HOME="/home/cshubh/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
+# doom emacs
+if [ -d "$HOME/.config/emacs/bin" ]; then
+  export PATH="$HOME/.config/emacs/bin:$PATH"
+fi
+
+# jdk 21
+if [ -d "$HOME/.local/opt/jdk-21.0.8/bin" ]; then
+  export PATH="$PATH:$HOME/.local/opt/jdk-21.0.8/bin"
+fi
+
+# bash vim mode
+set -o vi
+
+# Go version manager
+[[ -s "/home/cshubh/.gvm/scripts/gvm" ]] && source "/home/cshubh/.gvm/scripts/gvm"
+
 # atuin shell history (https://atuin.sh/)
 if [ -f "$HOME/.atuin/bin/env" ]; then
   . "$HOME/.atuin/bin/env"
@@ -170,6 +196,6 @@ fi
 [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
 
 if command -v atuin &> /dev/null; then
-  eval "$(atuin init bash)"
+  eval "$(atuin init bash --disable-up-arrow)"
 fi
 
