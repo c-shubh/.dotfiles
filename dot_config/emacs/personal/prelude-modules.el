@@ -52,7 +52,7 @@
 ;;; Vim emulation
 ;;
 ;; Enable this module if you're fond of vim's keybindings.
-;; (require 'prelude-evil)
+(require 'prelude-evil)
 
 ;;; Org-mode (a legendary productivity tool that deserves its own category)
 ;;
@@ -98,7 +98,7 @@
 (require 'prelude-yaml)
 
 ;;; Misc
-(require 'prelude-erc) ;; A popular Emacs IRC client (useful if you're still into Freenode)
+;; (require 'prelude-erc) ;; A popular Emacs IRC client (useful if you're still into Freenode)
 
 (provide 'prelude-modules)
 ;;; prelude-modules.el ends here
