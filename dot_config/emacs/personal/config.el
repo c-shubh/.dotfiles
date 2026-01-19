@@ -1,5 +1,7 @@
 ;;; -*- lexical-binding: t -*-
 
+(setq display-line-numbers-grow-only t)
+
 (defvar my/org-main-file "~/Documents/life.org"
   "The absolute path to my main org file.")
 
@@ -9,6 +11,7 @@
   (let* ((state (org-get-todo-state))
          (timestamp (format-time-string (concat "[" (cdr org-time-stamp-formats) "]")))
          (property (cdr (assoc state '(("TODO"      . "CREATED")
+                                       ("NEXT"      . "CREATED")
                                        ("DONE"      . "DONE")
                                        ("CANCELLED" . "CANCELLED"))))))
     (when (and property (not (org-entry-get nil property)))
@@ -54,7 +57,7 @@
         org-export-with-planning t)
 
   (setq org-capture-templates
-        '(("t" "Todo" entry (file my/org-main-file)
+        '(("t" "Todo" entry (file+headline my/org-main-file "Inbox")
            "* TODO %?\n:PROPERTIES:\n:CREATED: %U\n:END:"
            :empty-lines 1)))
   )
