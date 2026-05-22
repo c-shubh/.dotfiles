@@ -188,6 +188,29 @@ set -o vi
 # Go version manager
 [[ -s "/home/cshubh/.gvm/scripts/gvm" ]] && source "/home/cshubh/.gvm/scripts/gvm"
 
+# Android Studio
+if [ -d "$HOME/.local/opt/android-studio/bin" ]; then
+  export PATH="$HOME/.local/opt/android-studio/bin:$PATH"
+fi
+
+# scrcpy android screen mirror using adb
+if [ -d "$HOME/.local/opt/scrcpy-linux-x86_64-v3.3.4" ]; then
+  export PATH="$HOME/.local/opt/scrcpy-linux-x86_64-v3.3.4:$PATH"
+fi
+
+# Android SDK Platform Tools (adb)
+if [ -d "$HOME/.local/opt/Android/Sdk/platform-tools" ]; then
+  export PATH="$HOME/.local/opt/Android/Sdk/platform-tools:$PATH"
+fi
+
+# Intellij IDEA
+if [ -d "$HOME/.local/opt/idea-IU-261.22158.277/bin" ]; then
+  export PATH="$HOME/.local/opt/idea-IU-261.22158.277/bin:$PATH"
+fi
+
+# hledger
+export LEDGER_FILE="$HOME/Documents/hledger.journal"
+
 # atuin shell history (https://atuin.sh/)
 if [ -f "$HOME/.atuin/bin/env" ]; then
   . "$HOME/.atuin/bin/env"

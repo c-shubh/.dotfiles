@@ -2,14 +2,22 @@
 	defaultBranch = master
 [user]
 	name = Shubh A Chudasama
-	email = shubh.cs@proton.me
+	email = commit@cshubh.com
 [alias]
 	br = branch
 	sw = switch
 	ci = commit
+	cia = commit --amend
+	ckpt = commit --message 'Checkpoint'
+	cif = commit --fixup
 	st = status
 	# I found the below hist alias in some tutorial while learning git and had been using ever since.
 	# hist = log --pretty=format:'%C(yellow)%h %Creset%ad | %s%d [%an]' --graph --date=format:'%a %b %d %I:%M %p %Y'
 	# below is a version of https://stackoverflow.com/questions/1441010/the-shortest-possible-output-from-git-log-containing-author-and-date/63145145#63145145
 	# modified to match the structure of the `hist` alias I'm used to.
-	hist = log --pretty='%C(yellow)%h %C(cyan)%ad %Creset%s%C(auto)%d %Cblue[%aN]%C(reset)' --graph --date=format:'%a %b %d %I:%M %p %Y'
+	hs = log --pretty='%C(yellow)%h %C(cyan)%ad %Creset%s%C(auto)%d %Cblue[%aN]%C(reset)' --graph --date=format:'%a %b %d %I:%M %p %Y'
+	# Difftastic aliases, so `git dlog -p` is `git log -p`
+	# with difftastic and likewise for the other subcommands.
+	dlog = -c diff.external=difft log --ext-diff
+	dshow = -c diff.external=difft show --ext-diff
+	ddiff = -c diff.external=difft diff

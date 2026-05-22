@@ -68,7 +68,7 @@
 
   ;; --- CAPTURE ---
   (setq org-capture-templates
-        '(("t" "Todo" entry (file+headline my/org-main-file "Inbox")
+        '(("t" "Todo" entry (file+headline my/org-main-file "Tasks")
            "* TODO %?\n:PROPERTIES:\n:CREATED: %U\n:END:"
            :empty-lines 1)))
   )

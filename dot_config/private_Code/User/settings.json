@@ -12,8 +12,14 @@
   // ref: https://stackoverflow.com/questions/48369303/use-in-visual-studio-code-vim-extension-caps-instead-of-esc/50875402#50875402
   // ref: https://github.com/microsoft/vscode/issues/23991#issuecomment-292336504
   "keyboard.dispatch": "keyCode",
-  "editor.rulers": [{ "column": 80 }, { "column": 120 }],
-  "editor.tabSize": 2,
+  "editor.rulers": [
+    {
+      "column": 80
+    },
+    {
+      "column": 120
+    }
+  ],
   "telemetry.telemetryLevel": "off",
   "workbench.sideBar.location": "right",
   "terminal.integrated.confirmOnExit": "always",
@@ -33,7 +39,10 @@
   "workbench.secondarySideBar.defaultVisibility": "hidden",
   "editor.fontFamily": "DejaVuSansM Nerd Font Propo",
   "github.copilot.enable": {
-    "*": true
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
   },
   "diffEditor.ignoreTrimWhitespace": true,
   "diffEditor.renderSideBySide": true,
@@ -62,6 +71,48 @@
   "tailwindCSS.lint.cssConflict": "warning",
   "tailwindCSS.lint.recommendedVariantOrder": "warning",
   "tailwindCSS.lint.usedBlocklistedClass": "warning",
+  "ruff.configuration": "",
+  "rust-analyzer.check.command": "clippy",
+  "vscode-neovim.ctrlKeysForNormalMode": [
+    "a",
+    // "b", // workbench.action.toggleSidebarVisibility
+    "c",
+    "d",
+    "e",
+    "f",
+    "h",
+    "i",
+    "j",
+    "k",
+    "l",
+    "m",
+    "o",
+    "r",
+    "t",
+    "u",
+    "v",
+    "w",
+    "x",
+    "y",
+    "z",
+    "/",
+    "]",
+    "right",
+    "left",
+    "up",
+    "down",
+    "backspace",
+    "delete"
+  ],
+  "git.blame.editorDecoration.enabled": true,
+  "better-comments.highlightPlainText": true,
+  "bootstrapIntelliSense": {
+    "enable": true,
+    "bsVersion": "5.3.7",
+    "useLocalFile": false,
+    "cssFilePath": "",
+    "languageSupport": ["astro"]
+  },
   // ----------------------- language specific settings -----------------------
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -119,5 +170,11 @@
   },
   "[mdx]": {
     "editor.defaultFormatter": "unifiedjs.vscode-mdx"
+  },
+  "[just]": {
+    "editor.defaultFormatter": "nefrob.vscode-just-syntax"
+  },
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
   }
 }
