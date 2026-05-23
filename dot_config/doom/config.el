@@ -28,6 +28,7 @@
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
 ;; refresh your font settings. If Emacs still can't find your font, it likely
 ;; wasn't installed correctly. Font issues are rarely Doom issues!
+(setq doom-font (font-spec :family "DejaVu SansM Nerd Font Propo"))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -40,7 +41,48 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
+(setq org-directory "~/Documents")
+(setq org-log-into-drawer t)
+(defun my/org-set-created-property ()
+  "Set CREATED property to current timestamp, unless it already exists."
+  (interactive)
+  (unless (org-entry-get nil "CREATED")
+    (org-set-property "CREATED"
+                      (format-time-string (concat "[" (cdr org-time-stamp-formats) "]")))))
+(defun my/org-sort-by-created-then-todo ()
+  "Sort children of current heading: first by CREATED property, then by TODO keyword order."
+  (interactive)
+  ;; Sort by property CREATED, reverse (capital R) = newest first
+  (org-sort-entries nil ?R nil nil "CREATED")
+  ;; Then sort by TODO order (lowercase o) = built-in keyword order
+  (org-sort-entries nil ?o))
+(after! org
+  (setq org-default-notes-file (concat org-directory "/life.org"))
+  ;; modified from https://github.com/doomemacs/doomemacs/blob/c2ff579a28ecfec90c343417bc04b2a9569d9ed7/modules/lang/org/config.el#L157
+  (setq org-todo-keywords
+        '((sequence
+           "STRT(s!)"    ; A task that is in progress
+           "NEXT(n!)"    ; A task that I'll work on next
+           "TODO(t!)"    ; A task that needs doing & is ready to do
+           "WAIT(w!)"    ; Something external is holding up this task
+           "MAYB(m!)"    ; A task that I'll maybe work on someday
+           "|"
+           "CNCL(c!)"    ; Task was cancelled, aborted, or is no longer applicable
+           "DONE(d!)"))) ; Task successfully completed
+  (setq org-todo-keyword-faces
+        '(("STRT" . +org-todo-active)
+          ("NEXT" . +org-todo-active)
+          ("WAIT" . +org-todo-onhold)
+          ("MAYB" . +org-todo-onhold)
+          ("CNCL" . +org-todo-cancel)))
+  (setq org-capture-templates
+        '(("t" "Todo" entry (file+headline org-default-notes-file "Tasks")
+           "* TODO %?\n:PROPERTIES:\n:CREATED: %U\n:END:")))
+  (add-hook 'org-after-todo-state-change-hook #'my/org-set-created-property)
+  (add-hook! 'org-mode-hook :append
+    ;; turn off word wrap
+    (visual-line-mode -1)
+    (setq-local truncate-lines t)))
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `with-eval-after-load' block, otherwise Doom's defaults may override your
