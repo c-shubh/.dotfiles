@@ -28,7 +28,7 @@
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
 ;; refresh your font settings. If Emacs still can't find your font, it likely
 ;; wasn't installed correctly. Font issues are rarely Doom issues!
-(setq doom-font (font-spec :family "DejaVu SansM Nerd Font Propo"))
+(setq doom-font (font-spec :family "DejaVuSansM Nerd Font Propo"))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -43,6 +43,7 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/Documents")
 (setq org-log-into-drawer t)
+(map! "C-c c" #'org-capture)
 (defun my/org-set-created-property ()
   "Set CREATED property to current timestamp, unless it already exists."
   (interactive)
@@ -114,3 +115,8 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+;; https://github.com/bbatsov/super-save/blob/dae7cfe4bba83904d1567e14cbbd7ed141ab37a1/README.md
+(setq super-save-auto-save-when-idle t)
+(setq super-save-idle-duration 5)
+(super-save-mode +1)

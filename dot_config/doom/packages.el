@@ -52,3 +52,5 @@
 ;; (unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;; (unpin! t)
+
+(package! super-save :pin "dae7cfe4bba83904d1567e14cbbd7ed141ab37a1")
