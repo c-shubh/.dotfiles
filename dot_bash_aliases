@@ -1,2 +1,3 @@
 alias rrm='gtrash put -v'
 alias cm='chezmoi -v'
+alias g='git'

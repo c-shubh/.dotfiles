@@ -185,9 +185,12 @@ fi
 
 # bash vim mode
 set -o vi
+# Force Ctrl-C to safely abort the line and drop to a new prompt
+bind -m vi-insert '"\C-c": "\e#"'
+bind -m vi-command '"\C-c": "#"'
 
 # Go version manager
-[[ -s "/home/cshubh/.gvm/scripts/gvm" ]] && source "/home/cshubh/.gvm/scripts/gvm"
+# [[ -s "/home/cshubh/.gvm/scripts/gvm" ]] && source "/home/cshubh/.gvm/scripts/gvm"
 
 # Android Studio
 if [ -d "$HOME/.local/opt/android-studio/bin" ]; then
@@ -195,8 +198,8 @@ if [ -d "$HOME/.local/opt/android-studio/bin" ]; then
 fi
 
 # scrcpy android screen mirror using adb
-if [ -d "$HOME/.local/opt/scrcpy-linux-x86_64-v3.3.4" ]; then
-  export PATH="$HOME/.local/opt/scrcpy-linux-x86_64-v3.3.4:$PATH"
+if [ -d "$HOME/.local/opt/scrcpy-linux-x86_64-v4.0" ]; then
+  export PATH="$HOME/.local/opt/scrcpy-linux-x86_64-v4.0:$PATH"
 fi
 
 # Android SDK Platform Tools (adb)

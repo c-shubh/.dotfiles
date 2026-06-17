@@ -57,6 +57,14 @@
   (org-sort-entries nil ?R nil nil "CREATED")
   ;; Then sort by TODO order (lowercase o) = built-in keyword order
   (org-sort-entries nil ?o))
+(defun my/org-view-strt-next ()
+  "Show agenda view of tasks with TODO keyword STRT or NEXT."
+  (interactive)
+  (org-tags-view nil "/STRT|NEXT"))
+(defun my/org-insert-inactive-timestamp-now ()
+  "Instantly insert an inactive timestamp with the current date and time."
+  (interactive)
+  (org-insert-time-stamp (current-time) t t))
 (after! org
   (setq org-default-notes-file (concat org-directory "/life.org"))
   ;; modified from https://github.com/doomemacs/doomemacs/blob/c2ff579a28ecfec90c343417bc04b2a9569d9ed7/modules/lang/org/config.el#L157
@@ -65,10 +73,10 @@
            "STRT(s!)"    ; A task that is in progress
            "NEXT(n!)"    ; A task that I'll work on next
            "TODO(t!)"    ; A task that needs doing & is ready to do
-           "WAIT(w!)"    ; Something external is holding up this task
+           "WAIT(w@/!)"  ; Something external is holding up this task
            "MAYB(m!)"    ; A task that I'll maybe work on someday
            "|"
-           "CNCL(c!)"    ; Task was cancelled, aborted, or is no longer applicable
+           "CNCL(c@/!)"  ; Task was cancelled, aborted, or is no longer applicable
            "DONE(d!)"))) ; Task successfully completed
   (setq org-todo-keyword-faces
         '(("STRT" . +org-todo-active)

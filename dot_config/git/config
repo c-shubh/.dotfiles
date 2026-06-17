@@ -21,3 +21,20 @@
 	dlog = -c diff.external=difft log --ext-diff
 	dshow = -c diff.external=difft show --ext-diff
 	ddiff = -c diff.external=difft diff
+[core]
+	# 1. Text files checked-out from the repository will keep original EOL characters in your working tree.
+	# 2. Text files in your working tree with CRLF characters are normalized to LF when committed back to the repository.
+	# From: https://stackoverflow.com/questions/3206843/how-line-ending-conversions-work-with-git-core-autocrlf-between-different-operat/4425433#4425433
+	# ╔═══════════════╦══════════════╦══════════════╦══════════════╗
+	# ║ core.autocrlf ║     false    ║     input    ║     true     ║
+	# ╠═══════════════╬══════════════╬══════════════╬══════════════╣
+	# ║               ║ LF   => LF   ║ LF   => LF   ║ LF   => CRLF ║
+	# ║ git checkout  ║ CR   => CR   ║ CR   => CR   ║ CR   => CR   ║
+	# ║               ║ CRLF => CRLF ║ CRLF => CRLF ║ CRLF => CRLF ║
+	# ╠═══════════════╬══════════════╬══════════════╬══════════════╣
+	# ║               ║ LF   => LF   ║ LF   => LF   ║ LF   => LF   ║
+	# ║ git commit    ║ CR   => CR   ║ CR   => CR   ║ CR   => CR   ║
+	# ║               ║ CRLF => CRLF ║ CRLF => LF   ║ CRLF => LF   ║
+	# ╚═══════════════╩══════════════╩══════════════╩══════════════╝
+	# From: https://stackoverflow.com/questions/3206843/how-line-ending-conversions-work-with-git-core-autocrlf-between-different-operat/41282375#41282375
+	autocrlf = input
