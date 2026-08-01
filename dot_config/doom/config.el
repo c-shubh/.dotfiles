@@ -43,6 +43,8 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/Documents")
 (setq org-log-into-drawer t)
+(setq org-agenda-dim-blocked-tasks nil)
+(setq org-refile-targets '((nil :maxlevel . 6) (org-agenda-files :maxlevel . 6)))
 (map! "C-c c" #'org-capture)
 (defun my/org-set-created-property ()
   "Set CREATED property to current timestamp, unless it already exists."

@@ -113,6 +113,8 @@
     "cssFilePath": "",
     "languageSupport": ["astro"]
   },
+  "editor.multiCursorModifier": "ctrlCmd",
+  "files.insertFinalNewline": true,
   // ----------------------- language specific settings -----------------------
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
